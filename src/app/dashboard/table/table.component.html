@@ -1,3 +1,4 @@
+<h2>Selected row: {{selectedRow | json}}</h2>
 <table>
     <thead>
         <tr>
@@ -7,7 +8,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let transaction of transactions">
+        <tr *ngFor="let transaction of transactions"
+            (click)="onRowClick(transaction)">
             <td>{{transaction.elementName}}</td>
             <td>{{transaction.regularTransactions}}</td>
             <td>{{transaction.mobileTransactions}}</td>
