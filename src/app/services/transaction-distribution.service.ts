@@ -27,7 +27,7 @@ export class TransactionDistributionService {
     ]
   }
 
-  getTransactionDistribution(level, initialDate, finalDate):Observable<TransactionDistribution[]>{
-    return of(this.transactions.filter((distribution) => distribution.parentLevel == level)).pipe(delay(200));
+  getTransactionDistribution(level, elementId, initialDate, finalDate):Observable<TransactionDistribution[]>{
+    return of(this.transactions.filter((distribution) => distribution.parentLevel == level && distribution.parentId == elementId)).pipe(delay(200));
   }
 }

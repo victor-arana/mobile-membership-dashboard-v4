@@ -10,17 +10,17 @@ import { TransactionDistribution } from './model/transaction-distribution';
 export class AppComponent {
   title = 'mobile-membership-dashboard-v4';
 
-  private transactions: TransactionDistribution[];
+  public transactions: TransactionDistribution[];
 
   constructor(private service: TransactionDistributionService){}
 
   ngOnInit(): void {
-    this.service.getTransactionDistribution(0,new Date(), new Date()).subscribe(d => this.transactions = d);
+    this.service.getTransactionDistribution(0, 1, new Date(), new Date()).subscribe(d => this.transactions = d);
   }
 
   onRowClick(row){
-    console.log("Row: ", row.level);
-    this.service.getTransactionDistribution(row.parentLevel,new Date(), new Date()).subscribe(d => this.transactions = d);
+    console.log("Row: ", row);
+    this.service.getTransactionDistribution(row.level, row.elementId, new Date(), new Date()).subscribe(d => this.transactions = d);
   }
 
 }
