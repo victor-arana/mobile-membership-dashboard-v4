@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransactionDistributionService } from './services/transaction-distribution.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mobile-membership-dashboard-v4';
+
+  constructor(private service: TransactionDistributionService){}
 }
