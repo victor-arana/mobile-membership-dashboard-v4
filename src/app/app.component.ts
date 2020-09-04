@@ -18,4 +18,9 @@ export class AppComponent {
     this.service.getTransactionDistribution(0,new Date(), new Date()).subscribe(d => this.transactions = d);
   }
 
+  onRowClick(row){
+    console.log("Row: ", row.level);
+    this.service.getTransactionDistribution(row.parentLevel,new Date(), new Date()).subscribe(d => this.transactions = d);
+  }
+
 }

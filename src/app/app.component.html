@@ -1,3 +1,4 @@
 <h2>{{title}}</h2>
-<app-table [transactions]="transactions"></app-table>
+<app-table [transactions]="transactions"
+            (rowClick)="onRowClick($event)" ></app-table>
 <router-outlet></router-outlet>
