@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { TransactionDistribution } from 'src/app/model/transaction-distribution';
 
 @Component({
@@ -6,7 +6,7 @@ import { TransactionDistribution } from 'src/app/model/transaction-distribution'
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
 
   @Input() public transactions: TransactionDistribution[]
   @Output() public rowClick: EventEmitter<TransactionDistribution>;
@@ -17,12 +17,8 @@ export class TableComponent implements OnInit {
   }
 
   onRowClick(distribution){
-    console.log("distribution: ", distribution);
     this.selectedRow = distribution;
     this.rowClick.emit(this.selectedRow);
-  }
-
-  ngOnInit(): void {
   }
 
 }
