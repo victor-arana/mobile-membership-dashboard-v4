@@ -7,15 +7,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Region 1</td>
-            <td>75</td>
-            <td>90</td>
-        </tr>
-        <tr>
-            <td>Region 2</td>
-            <td>50</td>
-            <td>100</td>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.elementName}}</td>
+            <td>{{transaction.regularTransactions}}</td>
+            <td>{{transaction.mobileTransactions}}</td>
         </tr>
     </tbody>
 </table>
