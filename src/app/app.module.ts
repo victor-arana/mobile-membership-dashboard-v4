@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TransactionDistributionService } from './services/transaction-distribution.service';
 import { TableComponent } from './dashboard/table/table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TableComponent } from './dashboard/table/table.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [TransactionDistributionService],
   bootstrap: [AppComponent]
