@@ -8,7 +8,7 @@ import { TransactionDistribution } from 'src/app/model/transaction-distribution'
 })
 export class TableComponent implements OnInit {
 
-  @Input() private transactions: TransactionDistribution[]
+  @Input() public transactions: TransactionDistribution[]
   @Output() public rowClick: EventEmitter<TransactionDistribution>;
   public selectedRow: TransactionDistribution;
 
