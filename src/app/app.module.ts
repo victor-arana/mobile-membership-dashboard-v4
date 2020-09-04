@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TransactionDistributionService } from './services/transaction-distribution.service';
 import { TableComponent } from './dashboard/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TableComponent
   ],
   imports: [
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
