@@ -9,9 +9,11 @@ import { TransactionDistribution } from 'src/app/model/transaction-distribution'
 export class TableComponent implements OnInit {
 
   private transactions: TransactionDistribution[]
+  @Output() public rowClick: EventEmitter<TransactionDistribution>;
   public selectedRow: TransactionDistribution;
 
-  constructor() { 
+  constructor() {
+    this.rowClick = new EventEmitter<TransactionDistribution>(); 
     this.transactions = [
       {"parentLevel": -1, "level":0, "elementId": 1, "elementName":"General", "regularTransactions": 25, "mobileTransactions": 75},
       {"parentLevel": 0, "level":1, "elementId": 1, "elementName":"Region 01", "regularTransactions": 20, "mobileTransactions": 50},
@@ -22,6 +24,7 @@ export class TableComponent implements OnInit {
   onRowClick(distribution){
     console.log("distribution: ", distribution);
     this.selectedRow = distribution;
+    this.rowClick.emit(this.selectedRow);
   }
 
   ngOnInit(): void {
