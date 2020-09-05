@@ -23,4 +23,9 @@ export class AppComponent {
     this.service.getTransactionDistribution(row.level, row.elementId, new Date(), new Date()).subscribe(d => this.transactions = d);
   }
 
+  onItemSelect(row){
+    console.log("Item selected:", row);
+    this.service.getTransactionDistribution(row.level, row.elementId, new Date(), new Date()).subscribe(d => this.transactions = d);
+  }
+
 }

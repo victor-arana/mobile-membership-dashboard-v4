@@ -1,5 +1,7 @@
 <h2>{{title}}</h2>
-<app-table [transactions]="transactions"
-            (rowClick)="onRowClick($event)" ></app-table>
-<app-material-table></app-material-table>
+<!-- <app-table [transactions]="transactions"
+            (rowClick)="onRowClick($event)"
+            (itemSelect)="onItemSelect($event)" ></app-table> -->
+<app-material-table [source]="transactions"
+                    (itemSelect)="onItemSelect($event)" ></app-material-table>
 <router-outlet></router-outlet>
