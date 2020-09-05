@@ -7,11 +7,13 @@ import { TransactionDistributionService } from './services/transaction-distribut
 import { TableComponent } from './dashboard/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { MaterialTableComponent } from './dashboard/material-table/material-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+    TableComponent,
+    MaterialTableComponent
   ],
   imports: [
     MatTableModule,
