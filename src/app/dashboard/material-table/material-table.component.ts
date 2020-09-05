@@ -8,6 +8,8 @@ import { TransactionDistribution } from 'src/app/model/transaction-distribution'
 })
 export class MaterialTableComponent implements OnInit {
 
+  columnsToDisplay = ['level', 'regularTransactions', 'mobileTransactions'];
+  
   public distributions: TransactionDistribution[]
 
   constructor() { 
