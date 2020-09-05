@@ -12,12 +12,28 @@ export class AppComponent {
   title = 'mobile-membership-dashboard-v4';
 
   public transactions: TransactionDistribution[];
+  private chart: any;
 
   constructor(private service: TransactionDistributionService,
               private amChartsService: AmChartsService){}
 
   ngOnInit(): void {
     this.service.getTransactionDistribution(0, 1, new Date(), new Date()).subscribe(d => this.transactions = d);
+    this.chart = this.amChartsService.makeChart("chartdiv",{
+      "type"    : "pie",
+      "titleField"  : "category",
+      "valueField"  : "column-1",
+      "dataProvider"  : [
+        {
+          "category": "category 1",
+          "column-1": 5
+        },
+        {
+          "category": "category 2",
+          "column-1": 1
+        }
+      ]
+    });
   }
 
   onRowClick(row){
