@@ -1,3 +1,17 @@
 <table mat-table [dataSource]="distributions" class="mat-elevation-z8">
-
+    <!-- level column -->
+    <ng-container matColumnDef="level">
+        <th mat-header-cell *matHeaderCellDef>Level</th>
+        <td mat-cell *matCellDef="let distribution">{{distribution.elementName}}</td>
+    </ng-container>
+    <!-- regular transactions column -->
+    <ng-container matColumnDef="regularTransactions">
+        <th mat-header-cell *matHeaderCellDef>Regular transactions</th>
+        <td mat-cell *matCellDef="let distribution">{{distribution.regularTransactions}}</td>
+    </ng-container>
+    <!-- mobile transactions column -->
+    <ng-container matColumnDef="mobileTransactions">
+        <th mat-header-cell *matHeaderCellDef>Mobile transactions</th>
+        <td mat-cell *matCellDef="let distribution">{{distribution.mobileTransactions}}</td>
+    </ng-container>
 </table>
