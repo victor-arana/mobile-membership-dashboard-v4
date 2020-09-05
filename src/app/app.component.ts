@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TransactionDistributionService } from './services/transaction-distribution.service';
 import { TransactionDistribution } from './model/transaction-distribution';
+import { AmChartsService } from '@amcharts/amcharts3-angular';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
 
   public transactions: TransactionDistribution[];
 
-  constructor(private service: TransactionDistributionService){}
+  constructor(private service: TransactionDistributionService,
+              private amChartsService: AmChartsService){}
 
   ngOnInit(): void {
     this.service.getTransactionDistribution(0, 1, new Date(), new Date()).subscribe(d => this.transactions = d);
