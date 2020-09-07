@@ -10,6 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MaterialTableComponent } from './dashboard/material-table/material-table.component';
 import { AmChartsModule } from '@amcharts/amcharts3-angular';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MaterialTableComponent
   ],
   imports: [
+     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
     MatToolbarModule,
     AmChartsModule,
     MatTableModule,
