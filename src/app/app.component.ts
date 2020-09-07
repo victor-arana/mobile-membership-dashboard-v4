@@ -9,7 +9,7 @@ import { AmChartsService } from '@amcharts/amcharts3-angular';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mobile-membership-dashboard-v4';
+  title = 'Mobile Membership Dashboard';
 
   public transactions: TransactionDistribution[];
   private chart: any;
