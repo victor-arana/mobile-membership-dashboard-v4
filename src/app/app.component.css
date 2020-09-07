@@ -1,0 +1,12 @@
+.dashboard-container{
+    text-align: center;
+}
+
+.dashboard-table{
+    display: inline-block;
+    height: 500px;
+}
+
+.dashboard-chart{
+    display: inline-block;
+}

@@ -15,35 +15,62 @@ export class AppComponent {
   private chart: any;
 
   constructor(private service: TransactionDistributionService,
-              private amChartsService: AmChartsService){}
+              private amChartsService: AmChartsService){
+    this.transactions = [
+      {"parentLevel": -1, "parentId":1, "level":0, "elementId": 1, "elementName":"General", "regularTransactions": 10, "mobileTransactions": 90}
+    ];          
+  }
 
   ngOnInit(): void {
     this.service.getTransactionDistribution(0, 1, new Date(), new Date()).subscribe(d => this.transactions = d);
     this.chart = this.amChartsService.makeChart("chartdiv",{
       "type"    : "pie",
-      "titleField"  : "category",
+      "titleField"  : "level",
+      "theme": "light",
+      "startDuration": 0,
+      "startEffect": "easeOutSine",
       "valueField"  : "column-1",
-      "dataProvider"  : [
-        {
-          "category": "category 1",
-          "column-1": 5
-        },
-        {
-          "category": "category 2",
-          "column-1": 1
-        }
-      ]
+      "dataProvider"  : this.generateData(this.transactions[0])
     });
+  }
+
+  generateData(transaction){
+    return [
+      {
+        "level": "Regular",
+        "column-1": transaction.regularTransactions
+      },
+      {
+        "level": "Mobile",
+        "column-1": transaction.mobileTransactions
+      }
+    ];
   }
 
   onRowClick(row){
     console.log("Row: ", row);
     this.service.getTransactionDistribution(row.level, row.elementId, new Date(), new Date()).subscribe(d => this.transactions = d);
+    this.chart = this.amChartsService.makeChart("chartdiv",{
+      "type"    : "pie",
+      "titleField"  : "level",
+      "valueField"  : "column-1",
+      "dataProvider"  : this.generateData(row)
+    });
+
   }
 
   onItemSelect(row){
     console.log("Item selected:", row);
     this.service.getTransactionDistribution(row.level, row.elementId, new Date(), new Date()).subscribe(d => this.transactions = d);
+    this.chart = this.amChartsService.makeChart("chartdiv",{
+      "type"    : "pie",
+      "theme": "light",
+      "startDuration": 0,
+      "startEffect": "easeInSine",
+      "titleField"  : "level",
+      "valueField"  : "column-1",
+      "dataProvider"  : this.generateData(row)
+    });
   }
 
 }
