@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MaterialTableComponent } from './dashboard/material-table/material-table.component';
 import { AmChartsModule } from '@amcharts/amcharts3-angular';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AmChartsModule } from '@amcharts/amcharts3-angular';
     MaterialTableComponent
   ],
   imports: [
+    MatToolbarModule,
     AmChartsModule,
     MatTableModule,
     BrowserModule,
